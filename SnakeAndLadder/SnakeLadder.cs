@@ -37,7 +37,7 @@ namespace SnakeLadderProblems
             {
                 RollADie();
                 CheckOptions();
-                CheckWinner();
+                if (CheckWinner());
                 {
                     break;
                 }
@@ -46,13 +46,11 @@ namespace SnakeLadderProblems
 
         private void RollADie()
         {
-            DieRolled = 5;
+           
             DieRolled = objRandom.Next(7);
             Console.WriteLine("Dice Rolled: {0}", DieRolled);
-            int PlayerPosition = 0;
-            int playerPosition = 100;
-            PlayerPosition = PlayerPosition + DieRolled;
-            Console.WriteLine("Player Position: {0}", PlayerPosition);
+            playerPosition = playerPosition + DieRolled;
+            Console.WriteLine("Player Position: {0}", playerPosition);
         }
         private void CheckOptions()
         {
@@ -74,8 +72,12 @@ namespace SnakeLadderProblems
         }
         private bool CheckWinner()
         {
-            if (playerPosition >= 100)
+            if (playerPosition > 100)
             {
+                playerPosition = playerPosition - DieRolled;
+            }
+            if (playerPosition == 100)
+            { 
                 Console.WriteLine("Player Won");
                 return true;
             }
