@@ -1,7 +1,14 @@
-﻿class Program
+﻿using System;
+namespace SnakeLadderProblems
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Welcome TO SNAKE AND LADDER Game");
+        static void Main(string[] args)
+        {
+            Console.WriteLine("==========Welcome To Snake And Ladder Game========");
+            SnakeLadder objsnakeLadder = new SnakeLadder();
+            objsnakeLadder.StartGame();
+
+        }
     }
 }
